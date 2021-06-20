@@ -1,0 +1,6 @@
+framework module Pods_AddUsersToTeamsTestProj {
+  umbrella header "Pods-AddUsersToTeamsTestProj-umbrella.h"
+
+  export *
+  module * { export * }
+}
