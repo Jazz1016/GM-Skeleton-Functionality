@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bK3-Us-Z0Q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KXE-je-vBe">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="VEW-3I-7qA">
             <objects>
-                <viewController id="LjZ-Wj-SN8" customClass="ViewController" customModule="AddUsersToTeamsTestProj" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" id="LjZ-Wj-SN8" customClass="ViewController" customModule="AddUsersToTeamsTestProj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yTv-ow-XfM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -231,11 +231,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tc4-xU-V3i">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tc4-xU-V3i">
                                 <rect key="frame" x="0.0" y="414" width="414" height="448"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="107" id="CHo-ea-r04">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="teamCell" rowHeight="107" id="CHo-ea-r04" customClass="TeamTableViewCell" customModule="AddUsersToTeamsTestProj" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="107"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CHo-ea-r04" id="57E-wD-vKy">
@@ -268,7 +268,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="bpb-EM-ESH" kind="show" id="66W-0Y-3B5"/>
+                                            <outlet property="teamNameLabel" destination="skO-CH-ogp" id="H9M-zU-leC"/>
+                                            <segue destination="bpb-EM-ESH" kind="show" identifier="toTeamDetailVC" id="66W-0Y-3B5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -282,7 +283,7 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="82" id="zIY-4e-24D" customClass="InvitesTableViewCell" customModule="AddUsersToTeamsTestProj" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="inviteCell" rowHeight="82" id="zIY-4e-24D" customClass="InvitesTableViewCell" customModule="AddUsersToTeamsTestProj" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="68.5" width="414" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zIY-4e-24D" id="9de-ez-TvF">
@@ -330,10 +331,18 @@
                                     <action selector="reloadTablesButton:" destination="Rqe-7H-dzC" eventType="touchUpInside" id="97u-IH-UOH"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDE-VU-Ywx">
+                                <rect key="frame" x="140" y="96" width="134" height="30"/>
+                                <state key="normal" title="FetchData"/>
+                                <connections>
+                                    <action selector="fetchTeamData:" destination="Rqe-7H-dzC" eventType="touchUpInside" id="iWL-3Q-Zwh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8do-87-VeF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="dDE-VU-Ywx" firstAttribute="leading" secondItem="dMc-U6-w8M" secondAttribute="trailing" constant="8" id="1ma-ij-gT8"/>
                             <constraint firstItem="fLW-5R-9vg" firstAttribute="top" secondItem="8do-87-VeF" secondAttribute="top" id="29v-Ss-yZP"/>
                             <constraint firstItem="8do-87-VeF" firstAttribute="trailing" secondItem="Tc4-xU-V3i" secondAttribute="trailing" id="8S5-EI-fTY"/>
                             <constraint firstItem="fLW-5R-9vg" firstAttribute="top" secondItem="8do-87-VeF" secondAttribute="top" constant="40" id="9gq-4Z-tzu"/>
@@ -341,7 +350,9 @@
                             <constraint firstItem="8do-87-VeF" firstAttribute="trailing" secondItem="fLW-5R-9vg" secondAttribute="trailing" id="HSV-6B-QMa"/>
                             <constraint firstItem="quZ-jp-5Hd" firstAttribute="top" secondItem="8do-87-VeF" secondAttribute="top" constant="8" id="KB3-Or-Buj"/>
                             <constraint firstItem="quZ-jp-5Hd" firstAttribute="width" secondItem="lEL-vY-J89" secondAttribute="width" multiplier="0.3" id="Pwt-7l-uYF"/>
+                            <constraint firstItem="quZ-jp-5Hd" firstAttribute="leading" secondItem="dDE-VU-Ywx" secondAttribute="trailing" constant="8" id="Rii-oc-X9O"/>
                             <constraint firstItem="dMc-U6-w8M" firstAttribute="width" secondItem="lEL-vY-J89" secondAttribute="width" multiplier="0.3" id="WqA-AQ-6E1"/>
+                            <constraint firstItem="dDE-VU-Ywx" firstAttribute="top" secondItem="8do-87-VeF" secondAttribute="top" constant="8" id="ZCf-qH-y8a"/>
                             <constraint firstItem="dMc-U6-w8M" firstAttribute="top" secondItem="8do-87-VeF" secondAttribute="top" constant="8" id="emt-9w-VmT"/>
                             <constraint firstItem="Tc4-xU-V3i" firstAttribute="height" secondItem="lEL-vY-J89" secondAttribute="height" multiplier="0.5" id="iy3-GM-Zdm"/>
                             <constraint firstItem="8do-87-VeF" firstAttribute="trailing" secondItem="quZ-jp-5Hd" secondAttribute="trailing" constant="8" id="mpI-Fh-jxg"/>
@@ -355,18 +366,19 @@
                         <barButtonItem key="leftBarButtonItem" title="Create Team" id="OuS-GZ-xON"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="joinTeamTableView" destination="fLW-5R-9vg" id="a3K-mw-4PO"/>
+                        <outlet property="joinTeamTableView" destination="fLW-5R-9vg" id="lon-tj-TCc"/>
                         <outlet property="teamsTableView" destination="Tc4-xU-V3i" id="QYC-dE-5YX"/>
+                        <segue destination="LjZ-Wj-SN8" kind="show" id="RjG-0i-A3i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3zT-nO-4sF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4536.231884057971" y="-58.258928571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--Team View Controller-->
         <scene sceneID="p24-hu-c7X">
             <objects>
-                <viewController id="bpb-EM-ESH" sceneMemberID="viewController">
+                <viewController id="bpb-EM-ESH" customClass="TeamViewController" customModule="AddUsersToTeamsTestProj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sET-dr-UD5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -406,6 +418,9 @@
                                             <constraint firstAttribute="height" constant="40" id="7PC-32-YBd"/>
                                         </constraints>
                                         <state key="normal" title="Send Invite"/>
+                                        <connections>
+                                            <action selector="sendInviteToUser:" destination="bpb-EM-ESH" eventType="touchUpInside" id="kmR-cD-WSx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -424,6 +439,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lzt-5Z-FOn"/>
+                    <connections>
+                        <outlet property="inviteEmailTextField" destination="pkE-r3-bOD" id="UTD-oo-dxA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OQr-I6-K0B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -533,24 +551,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="27r-q1-wdd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1819" y="408"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="rT4-KH-Q3o">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bK3-Us-Z0Q" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tm0-ma-Wvm">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="LjZ-Wj-SN8" kind="relationship" relationship="rootViewController" id="iqA-zF-Zr7"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YtX-nJ-DDW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-142.02898550724638" y="-3.3482142857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pGn-5R-qIC">

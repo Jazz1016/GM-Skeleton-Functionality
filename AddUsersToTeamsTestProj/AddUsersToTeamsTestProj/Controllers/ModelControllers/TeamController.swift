@@ -13,8 +13,31 @@ class TeamController {
     
     var teams: [Team] = []
     var user: User?
+    var nameString: String?
     
     let db = Firestore.firestore()
+    
+    func fetchUser(){
+        let query = db.collection("users").whereField("name", isEqualTo: "huy")
+        
+        query.getDocuments { snap, error in
+            
+            
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+            }
+            
+            if snap?.count == 1 {
+                guard let snap = snap else {return}
+                
+                let userData = snap.documents[0].data()
+                
+                let name = userData["name"] as? String
+                
+                self.nameString = name
+            }
+        }
+    }
     
     func fetchTeamsForUser(teamIds: [String]) {
         for i in teamIds {
@@ -22,7 +45,6 @@ class TeamController {
             let fetchedTeam = db.collection("teams").whereField("teamId", isEqualTo: i)
             print(i)
             fetchedTeam.getDocuments { snap, err in
-                
                 if snap?.count == 1 {
                     guard let snap = snap else {return}
                     let teamData = snap.documents[0].data()
@@ -42,12 +64,9 @@ class TeamController {
                     
                     let teamToAdd = Team(name: name1, admins: admins1, members: members1, city: city1, teamId: teamId1)
                     
-                    
-                    
                     self.teams.append(teamToAdd)
                 }
             }
-            
         }
     }
     
@@ -92,12 +111,12 @@ class TeamController {
             
             guard let snap = snap else {return}
             
-            print("hit")
             if snap.count == 1 {
                 let userData = snap.documents[0].data()
                 
                 let firstName = userData["firstName"] as? String
                 let lastName = userData["lastName"] as? String
+                var invites = userData["invites"] as? Array<String>
                 var teams = userData["teams"] as? Array ?? []
                 let userId = userData["uid"] as? String
                 
@@ -108,6 +127,7 @@ class TeamController {
                 self.db.collection("users").document(userId!).setData([
                     "firstName" : firstName,
                     "lastName" : lastName,
+                    "invites" : invites,
                     "teams" : teams,
                     "uid" : userId
                 ])
@@ -117,10 +137,68 @@ class TeamController {
         }
     }
     
-    func inviteUserToTeam(){
-        
+    func inviteUserToTeam(userEmail: String, teamId: String){
+        var userQueried = db.collection("users").whereField("email", isEqualTo: userEmail)
+        userQueried.getDocuments { snap, err in
+            if let err = err {
+                print("Error in \(#function) : \(err.localizedDescription) \n---\n \(err)")
+            }
+            
+            guard let snap = snap else {return}
+            
+            if snap.count == 1 {
+                let userData = snap.documents[0].data()
+                
+                let firstName = userData["firstName"] as? String
+                let lastName = userData["lastName"] as? String
+                var invites = userData["invites"] as? Array<String> ?? []
+                var teams = userData["teams"] as? Array ?? []
+                let userId = userData["uid"] as? String
+                
+                invites.append(teamId)
+                
+                self.db.collection("users").document(userId!).setData([
+                    "firstName" : firstName,
+                    "lastName" : lastName,
+                    "invites" : invites,
+                    "teams" : teams,
+                    "uid" : userId
+                ])
+            }
+        }
     }
     
     
+    func addUserToTeam(userId: String, teamId: String){
+        var userQueried = db.collection("users").whereField("uid", isEqualTo: userId)
+        userQueried.getDocuments { snap, err in
+            if let err = err {
+                print("Error in \(#function) : \(err.localizedDescription) \n---\n \(err)")
+            }
+            
+            guard let snap = snap else {return}
+            
+            if snap.count == 1 {
+                let userData = snap.documents[0].data()
+                
+                let firstName = userData["firstName"] as? String
+                let lastName = userData["lastName"] as? String
+                var invites = userData["invites"] as? Array<String> ?? []
+                var teams = userData["teams"] as? Array ?? []
+                let userId = userData["uid"] as? String
+                
+                invites.append(teamId)
+                
+                self.db.collection("users").document(userId!).setData([
+                    "firstName" : firstName,
+                    "lastName" : lastName,
+                    "invites" : invites,
+                    "teams" : teams,
+                    "uid" : userId
+                ])
+            }
+        }
+        
+    }
     
 }//End of class

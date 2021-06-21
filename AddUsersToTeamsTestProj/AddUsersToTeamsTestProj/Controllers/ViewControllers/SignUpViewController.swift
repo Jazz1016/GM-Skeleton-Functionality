@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
 
 class SignUpViewController: UIViewController {
     
@@ -58,8 +59,6 @@ class SignUpViewController: UIViewController {
         
         if error != nil {
             
-            
-            
             self.showError("Error creating user")
         } else {
             let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -67,38 +66,20 @@ class SignUpViewController: UIViewController {
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
-            
-            
-            Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
-                
-                print(err)
-                
-                if err != nil {
-                    
-                    self.showError("Error creating user")
+            Auth.auth().createUser(withEmail: email, password: password) { result, error in
+                if let error = error {
+                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 } else {
                     let db = Firestore.firestore()
-                    
-                    
-                    db.collection("users").document(result!.user.uid).setData(["firstName":firstName, "lastName":lastName, "teams":[], "uid":result!.user.uid]) { (error) in
-                        
-                        if error != nil {
-                            
-                            self.showError("Error saving user data")
-                        }
-                    }
-                    
-//                    db.collection("users").addDocument(data: ["firstName":firstName, "lastName":lastName, "teams":[], "uid":result!.user.uid]) { (error) in
-//
-//                        if error != nil {
-//
-//                            self.showError("Error saving user data")
-//                        }
-//                    }
-                    self.transitionToHome()
+                    db.collection("users").document(result!.user.uid).setData(["bob":"jimmy"])
                 }
             }
         }
+    }
+    
+    func createUser(){
+        let db = Firestore.firestore()
+        db.collection("users").document("jadasfasdfsdfsa").setData(["bob":"jimmy"])
     }
     
     func showError(_ message:String) {
@@ -113,6 +94,4 @@ class SignUpViewController: UIViewController {
         view.window?.rootViewController = homeViewController
         view.window?.makeKeyAndVisible()
     }
-    
-
 }

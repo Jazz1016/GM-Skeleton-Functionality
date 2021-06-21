@@ -8,16 +8,19 @@
 import UIKit
 
 class TeamTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    @IBOutlet weak var teamNameLabel: UILabel!
+    
+    // MARK: - Properties
+    var team: Team? {
+        didSet {
+            updateViews()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func updateViews(){
+        guard let team = team else {return}
+        teamNameLabel.text = team.name
     }
 
 }

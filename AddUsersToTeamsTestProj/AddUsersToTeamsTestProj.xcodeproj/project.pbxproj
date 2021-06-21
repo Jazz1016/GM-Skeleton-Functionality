@@ -11,18 +11,19 @@
 		0D10321E267CF8D800136C9A /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D10321D267CF8D800136C9A /* UserError.swift */; };
 		0D103220267DB0E400136C9A /* InvitesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D10321F267DB0E400136C9A /* InvitesTableViewCell.swift */; };
 		0D103222267DB16000136C9A /* TeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D103221267DB16000136C9A /* TeamTableViewCell.swift */; };
+		0D10322426804BFB00136C9A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D10322326804BFB00136C9A /* Utilities.swift */; };
+		0D10322826804C3E00136C9A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D10322726804C3E00136C9A /* Constants.swift */; };
+		0D1032322680FBD700136C9A /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1032312680FBD700136C9A /* TeamViewController.swift */; };
+		0D1032382681340900136C9A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D1032372681340900136C9A /* GoogleService-Info.plist */; };
 		0DCBB352267BAD1300F56CD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBB351267BAD1300F56CD1 /* AppDelegate.swift */; };
 		0DCBB354267BAD1300F56CD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBB353267BAD1300F56CD1 /* SceneDelegate.swift */; };
 		0DCBB359267BAD1300F56CD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DCBB357267BAD1300F56CD1 /* Main.storyboard */; };
 		0DCBB35B267BAD1400F56CD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DCBB35A267BAD1400F56CD1 /* Assets.xcassets */; };
 		0DCBB35E267BAD1400F56CD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DCBB35C267BAD1400F56CD1 /* LaunchScreen.storyboard */; };
-		0DCBB36E267C032B00F56CD1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DCBB36D267C032B00F56CD1 /* GoogleService-Info.plist */; };
 		0DCBB370267C0CC000F56CD1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBB36F267C0CC000F56CD1 /* HomeViewController.swift */; };
 		0DCBB372267C0CCB00F56CD1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBB371267C0CCB00F56CD1 /* LoginViewController.swift */; };
 		0DCBB374267C0CD600F56CD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBB373267C0CD600F56CD1 /* ViewController.swift */; };
 		0DCBB376267C0CE200F56CD1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBB375267C0CE200F56CD1 /* SignUpViewController.swift */; };
-		0DCBB378267C0D6400F56CD1 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBB377267C0D6400F56CD1 /* Utilities.swift */; };
-		0DCBB37C267C2B2800F56CD1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBB37B267C2B2800F56CD1 /* Constants.swift */; };
 		0DCBB37E267C49DF00F56CD1 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBB37D267C49DF00F56CD1 /* Team.swift */; };
 		0DCBB380267C4B4300F56CD1 /* TeamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBB37F267C4B4300F56CD1 /* TeamController.swift */; };
 		0DCBB382267C540A00F56CD1 /* NewTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBB381267C540A00F56CD1 /* NewTeamViewController.swift */; };
@@ -34,6 +35,10 @@
 		0D10321D267CF8D800136C9A /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		0D10321F267DB0E400136C9A /* InvitesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitesTableViewCell.swift; sourceTree = "<group>"; };
 		0D103221267DB16000136C9A /* TeamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTableViewCell.swift; sourceTree = "<group>"; };
+		0D10322326804BFB00136C9A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = ../../../../../../CustomLoginDemo/CustomLoginDemo/Helpers/Utilities.swift; sourceTree = "<group>"; };
+		0D10322726804C3E00136C9A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../../../../../../CustomLoginDemo/CustomLoginDemo/Helpers/Constants.swift; sourceTree = "<group>"; };
+		0D1032312680FBD700136C9A /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
+		0D1032372681340900136C9A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0DCBB34E267BAD1300F56CD1 /* AddUsersToTeamsTestProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AddUsersToTeamsTestProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DCBB351267BAD1300F56CD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DCBB353267BAD1300F56CD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,13 +46,10 @@
 		0DCBB35A267BAD1400F56CD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DCBB35D267BAD1400F56CD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DCBB35F267BAD1400F56CD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0DCBB36D267C032B00F56CD1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0DCBB36F267C0CC000F56CD1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0DCBB371267C0CCB00F56CD1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0DCBB373267C0CD600F56CD1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0DCBB375267C0CE200F56CD1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		0DCBB377267C0D6400F56CD1 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = ../../../FirebaseAuth/FirebaseAuth/Helpers/Utilities.swift; sourceTree = "<group>"; };
-		0DCBB37B267C2B2800F56CD1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../../../../../CustomLoginDemo/CustomLoginDemo/Helpers/Constants.swift; sourceTree = "<group>"; };
 		0DCBB37D267C49DF00F56CD1 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		0DCBB37F267C4B4300F56CD1 /* TeamController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamController.swift; sourceTree = "<group>"; };
 		0DCBB381267C540A00F56CD1 /* NewTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTeamViewController.swift; sourceTree = "<group>"; };
@@ -109,13 +111,13 @@
 		0DCBB365267BAD2300F56CD1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0DCBB377267C0D6400F56CD1 /* Utilities.swift */,
-				0DCBB36D267C032B00F56CD1 /* GoogleService-Info.plist */,
+				0D10322326804BFB00136C9A /* Utilities.swift */,
+				0D1032372681340900136C9A /* GoogleService-Info.plist */,
 				0DCBB351267BAD1300F56CD1 /* AppDelegate.swift */,
 				0DCBB353267BAD1300F56CD1 /* SceneDelegate.swift */,
 				0DCBB35A267BAD1400F56CD1 /* Assets.xcassets */,
 				0DCBB35F267BAD1400F56CD1 /* Info.plist */,
-				0DCBB37B267C2B2800F56CD1 /* Constants.swift */,
+				0D10322726804C3E00136C9A /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -164,6 +166,7 @@
 				0DCBB373267C0CD600F56CD1 /* ViewController.swift */,
 				0DCBB375267C0CE200F56CD1 /* SignUpViewController.swift */,
 				0DCBB381267C540A00F56CD1 /* NewTeamViewController.swift */,
+				0D1032312680FBD700136C9A /* TeamViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -261,8 +264,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DCBB36E267C032B00F56CD1 /* GoogleService-Info.plist in Resources */,
 				0DCBB35E267BAD1400F56CD1 /* LaunchScreen.storyboard in Resources */,
+				0D1032382681340900136C9A /* GoogleService-Info.plist in Resources */,
 				0DCBB35B267BAD1400F56CD1 /* Assets.xcassets in Resources */,
 				0DCBB359267BAD1300F56CD1 /* Main.storyboard in Resources */,
 			);
@@ -321,15 +324,16 @@
 				0D103222267DB16000136C9A /* TeamTableViewCell.swift in Sources */,
 				0DCBB376267C0CE200F56CD1 /* SignUpViewController.swift in Sources */,
 				0DCBB374267C0CD600F56CD1 /* ViewController.swift in Sources */,
-				0DCBB378267C0D6400F56CD1 /* Utilities.swift in Sources */,
 				0DCBB372267C0CCB00F56CD1 /* LoginViewController.swift in Sources */,
+				0D10322426804BFB00136C9A /* Utilities.swift in Sources */,
 				0DCBB352267BAD1300F56CD1 /* AppDelegate.swift in Sources */,
+				0D10322826804C3E00136C9A /* Constants.swift in Sources */,
 				0DCBB380267C4B4300F56CD1 /* TeamController.swift in Sources */,
+				0D1032322680FBD700136C9A /* TeamViewController.swift in Sources */,
 				0DCBB354267BAD1300F56CD1 /* SceneDelegate.swift in Sources */,
 				0D10321B267CEDED00136C9A /* User.swift in Sources */,
 				0DCBB370267C0CC000F56CD1 /* HomeViewController.swift in Sources */,
 				0D10321E267CF8D800136C9A /* UserError.swift in Sources */,
-				0DCBB37C267C2B2800F56CD1 /* Constants.swift in Sources */,
 				0D103220267DB0E400136C9A /* InvitesTableViewCell.swift in Sources */,
 				0DCBB382267C540A00F56CD1 /* NewTeamViewController.swift in Sources */,
 			);
